@@ -2,12 +2,12 @@ import mongoose from "mongoose";
 
 const foodSchema = mongoose.Schema(
   {
-    name: { type: String },
+    name: { type: String, required: true },
     sizes: [],
     prices: [],
-    category: { type: String },
-    image: { type: String },
-    description: { type: String },
+    category: { type: String, required: true },
+    image: { type: String, required: true },
+    description: { type: String, required: true },
   },
   {
     timestamps: true,

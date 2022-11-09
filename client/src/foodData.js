@@ -1,4 +1,4 @@
-const healthyFood = [
+const foods = [
   {
     name: "Classic White Chicken Chili",
     sizes: ["small", "medium", "large"],
@@ -11,7 +11,7 @@ const healthyFood = [
     ],
     category: "Soups",
     image:
-      "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/healthy-soup-recipes-white-chicken-chili-1634592750.jpg?crop=0.910xw:0.911xh;0.0719xw,0.0543xh&resize=980:*",
+      "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/healthy-soup-recipes-white-chicken-chili-1634592750.jpg",
     description:
       "Aching for a chili night? This white-bean version uses healthier chicken, but still packs in the flavor.",
   },
@@ -544,4 +544,4 @@ const healthyFood = [
   },
 ];
 
-export default healthyFood;
+export default foods;

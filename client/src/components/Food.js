@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 
-export default function HealthyFood({ food }) {
+
+export default function Food({ food }) {
   const [quantity, setQuantity] = useState(1);
   const [size, setSize] = useState("small");
   const [showModal, setShowModal] = React.useState(false);
@@ -25,7 +26,7 @@ export default function HealthyFood({ food }) {
               setSize(e.target.value);
             }}
           >
-            {food.sizes.map((size) => {
+            {food.sizes.map((size,index) => {
               return <option value={size}>{size}</option>;
             })}
           </select>
