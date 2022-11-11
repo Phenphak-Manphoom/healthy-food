@@ -1,12 +1,14 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { addToCart } from "../redux/actions/cartAction";
-import {deleteFormCart} from "../redux/actions/cartAction.js"
+import { deleteFormCart } from "../redux/actions/cartAction.js";
 
 export default function CartsPage() {
   const cartState = useSelector((state) => state.cartReducer);
   const cartItems = cartState.cartItems;
   const dispatch = useDispatch();
+  let subTotal = cartItems.reduce((x, item) => x + item.price, 0);
+
   return (
     <div className="flex justify-center">
       <div className="flex-row  mt-10 w-1/2 ">
@@ -39,17 +41,25 @@ export default function CartsPage() {
                 <hr />
               </div>
               <div className="flex justify-center m-auto">
-                <img src={item.image} className="w-24 h-24" />
+                <img src={item.image} className="w-28 h-28" />
               </div>
               <div className="flex justify-center m-auto ml-3">
-                <i className="fa-solid fa-trash text-red-600" onClick={()=>{dispatch(deleteFormCart(item))}}></i>
+                <i
+                  className="fa-solid fa-trash text-red-600"
+                  onClick={() => {
+                    dispatch(deleteFormCart(item));
+                  }}
+                ></i>
               </div>
             </div>
           );
         })}
       </div>
-      <div className="w-1/3 justify-center m-10">
-        <h1>B</h1>
+      <div className="w-1/3 justify-center m-10 text-right">
+        <h2 className="text-4xl">SubTotal : ฿ {subTotal}</h2>
+        <button className="mt-2 bg-red-600  text-white font-bold py-2 px-4 rounded">
+          CHECK OUT
+        </button>
       </div>
     </div>
   );
