@@ -1,8 +1,11 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
+import { addToCart } from "../redux/actions/cartAction";
+
 export default function CartsPage() {
   const cartState = useSelector((state) => state.cartReducer);
   const cartItems = cartState.cartItems;
+  const dispatch = useDispatch();
   return (
     <div className="flex justify-center">
       <div className="flex-row  mt-10 w-1/2 ">
@@ -19,15 +22,25 @@ export default function CartsPage() {
                   {item.price}
                 </h1>
                 <h1 className="inline">Quantity : </h1>
-                <i className="fa-solid fa-plus text-green-700 "></i>
+                <i
+                  className="fa-solid fa-plus text-green-700 "
+                  onClick={() => {
+                    dispatch(addToCart(item, item.quantity + 1, item.size));
+                  }}
+                ></i>
                 <b className="mr-3 ml-3">{item.quantity}</b>
-                <i className="fa-solid fa-minus text-red-600"></i>
+                <i
+                  className="fa-solid fa-minus text-red-600"
+                  onClick={() => {
+                    dispatch(addToCart(item, item.quantity - 1, item.size));
+                  }}
+                ></i>
                 <hr />
               </div>
               <div className="flex justify-center m-auto">
                 <img src={item.image} className="w-24 h-24" />
               </div>
-              <div className="flex justify-center m-auto">
+              <div className="flex justify-center m-auto ml-3">
                 <i className="fa-solid fa-trash text-red-600"></i>
               </div>
             </div>

@@ -6,7 +6,7 @@ export default function () {
     <div>
       <nav className="bg-white border-gray-200 px-2 sm:px-4 py-2.5 rounded dark:bg-gray-900 shadow-lg">
         <div className="container flex flex-wrap justify-between items-center mx-auto">
-          <a href="" className="flex items-center">
+          <a href="/" className="flex items-center">
             <img
               src="https://st3.depositphotos.com/30746508/34717/v/1600/depositphotos_347179834-stock-illustration-healthy-food-logo-template-natural.jpg"
               className="mr-3 h-6 sm:h-9"
