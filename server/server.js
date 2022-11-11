@@ -1,5 +1,5 @@
 import express from "express";
-import { db } from "./db.js";
+import { db } from "./utils/db.js";
 import foodModel from "./models/foodModel.js";
 import foodRouter from "./routes/foodRoute.js";
 const app = express();

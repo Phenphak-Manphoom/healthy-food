@@ -1,10 +1,15 @@
 import React, { useState } from "react";
-
+import { useSelector, useDispatch } from "react-redux";
+import { addToCart } from "../redux/actions/cartAction.js";
 
 export default function Food({ food }) {
   const [quantity, setQuantity] = useState(1);
   const [size, setSize] = useState("small");
   const [showModal, setShowModal] = React.useState(false);
+  const dispatch = useDispatch();
+  function addtocart() {
+    dispatch(addToCart(food, quantity, size));
+  }
   return (
     <div className="m-3  p-2">
       <h1 className="mb-3">{food.name}</h1>
@@ -26,7 +31,7 @@ export default function Food({ food }) {
               setSize(e.target.value);
             }}
           >
-            {food.sizes.map((size,index) => {
+            {food.sizes.map((size, index) => {
               return <option value={size}>{size}</option>;
             })}
           </select>
@@ -46,12 +51,15 @@ export default function Food({ food }) {
           </select>
         </div>
       </div>
-      <div className="flex mt-2">
-        <div className="flex-1 w-100 m-auto">
+      <div className="flex m-1 justify-around">
+        <div className="w-100">
           <h1>Price : ฿ {food.prices[0][size] * quantity}</h1>
         </div>
-        <div className="flex-1 w-100 mb-auto">
-          <button className="bg-red-600 text-white font-bold py-1 px-4 rounded">
+        <div className="w-100 ">
+          <button
+            className="bg-teal-500 text-white font-bold py-1 px-3 rounded"
+            onClick={addtocart}
+          >
             Add To Cart
           </button>
         </div>
