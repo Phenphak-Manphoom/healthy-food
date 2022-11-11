@@ -1,6 +1,7 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { addToCart } from "../redux/actions/cartAction";
+import {deleteFormCart} from "../redux/actions/cartAction.js"
 
 export default function CartsPage() {
   const cartState = useSelector((state) => state.cartReducer);
@@ -41,7 +42,7 @@ export default function CartsPage() {
                 <img src={item.image} className="w-24 h-24" />
               </div>
               <div className="flex justify-center m-auto ml-3">
-                <i className="fa-solid fa-trash text-red-600"></i>
+                <i className="fa-solid fa-trash text-red-600" onClick={()=>{dispatch(deleteFormCart(item))}}></i>
               </div>
             </div>
           );
