@@ -31,7 +31,7 @@ export default function Food({ food }) {
               setSize(e.target.value);
             }}
           >
-            {food.sizes.map((size, index) => {
+            {food.sizes.map((size) => {
               return <option value={size}>{size}</option>;
             })}
           </select>

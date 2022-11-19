@@ -1,3 +1,4 @@
+import "tailwindcss"
 module.exports = {
   plugins: {
     tailwindcss: {},

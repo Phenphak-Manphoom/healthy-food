@@ -4,20 +4,30 @@ import thunk from "redux-thunk";
 import { composeWithDevTools } from "redux-devtools-extension";
 import { getAllFoodsReducers } from "../redux/reducers/foodReducers.js";
 import { cartReducer } from "./reducers/cartReducers.js";
-import { userRegisterReducer } from "./reducers/userReducers.js";
+import {
+  registerUserReducer,
+  loginUserReducer,
+} from "./reducers/userReducers.js";
 
 const finalReducer = combineReducers({
   getAllFoodsReducers: getAllFoodsReducers,
   cartReducer: cartReducer,
-  userReducer: userRegisterReducer,
+  registerUserReducer: registerUserReducer,
+  loginUserReducer: loginUserReducer,
 });
 
 const cartItems = localStorage.getItem("cartItems")
   ? JSON.parse(localStorage.getItem("cartItems"))
   : [];
+const currentUser = localStorage.getItem("currentUser")
+  ? JSON.parse(localStorage.getItem("currentUser"))
+  : null;
 const initialState = {
   cartReducer: {
     cartItems: cartItems,
+  },
+  loginUserReducer: {
+    currentUser: currentUser,
   },
 };
 const composeEnhancers = composeWithDevTools({});
