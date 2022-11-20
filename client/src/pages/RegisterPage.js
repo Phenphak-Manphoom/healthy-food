@@ -1,5 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
+import Error from "../components/Error";
+import Loading from "../components/Loading";
+import Success from "../components/Success";
 import { registerUser } from "../redux/actions/userAction";
 
 export default function RegisterPage() {
@@ -7,7 +10,9 @@ export default function RegisterPage() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
-  const dispatch=useDispatch();
+  const dispatch = useDispatch();
+  const registerstate = useSelector((state) => state.registerUserReducer);
+  const { error, loading, success } = registerstate;
 
   function register() {
     if (password !== confirmPassword) {
@@ -18,14 +23,17 @@ export default function RegisterPage() {
         email,
         password,
       };
-     console.log(user);
-     dispatch(registerUser(user))
+      console.log(user);
+      dispatch(registerUser(user));
     }
   }
   return (
-    <div className="m-10">
-      <div className="container mx-auto p-4 bg-white">
-        <div className="w-full md:w-1/2 lg:w-1/3 mx-auto my-12">
+    <div className="m-5">
+      <div className="container md:w-1/2 lg:w-1/2 mx-auto my-12 bg-white shadow-xl">
+        <div className="w-full p-16 ">
+          {loading && <Loading />}
+          {success && <Success success="User Registered Successfully" />}
+          {error && <Error error="Email already registed" />}
           <h1 className="text-lg font-bold">Register</h1>
           <div className="flex flex-col mt-4">
             <input
@@ -82,8 +90,8 @@ export default function RegisterPage() {
             <div className="flex flex-col items-center mt-5">
               <p className="mt-1 text-xs font-light text-gray-500">
                 Register already?
-                <a href="" className="ml-1 font-medium text-blue-400">
-                  Sign in now
+                <a href="/login" className="ml-1 font-medium text-blue-400">
+                  Login now
                 </a>
               </p>
             </div>

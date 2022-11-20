@@ -1,18 +1,22 @@
-import React, { useState } from "react";
+import React, { useState} from "react";
 import { useSelector, useDispatch } from "react-redux";
+import { logoutUser } from "../redux/actions/userAction";
 export default function () {
   const cartState = useSelector((state) => state.cartReducer);
   const usestate = useSelector((state) => state.loginUserReducer);
   const [open, setOpen] = useState(false);
+  const dispatch = useDispatch();
   const { currentUser } = usestate;
-
+ 
+ 
   const handleOpen = () => {
     setOpen(!open);
   };
-  const handleMenu = () => {
-    setOpen(false);
+  const logout = () => {
+   
+    dispatch(logoutUser());
   };
-
+  
   return (
     <div>
       <nav className="bg-white border-gray-200 px-2 sm:px-4 py-2.5 rounded dark:bg-gray-900 shadow-lg">
@@ -41,10 +45,15 @@ export default function () {
                     {open ? (
                       <ul className="menu">
                         <li className="menu-item text-gray-700">
-                          <button onClick={handleMenu}>Orders</button>
+                          <button type="submit">Orders</button>
                         </li>
                         <li className="menu-item text-gray-700">
-                          <button onClick={handleMenu}>Logout</button>
+                          <button
+                           onClick={logout}
+                           type="submit"
+                          >
+                            Logout
+                          </button>
                         </li>
                       </ul>
                     ) : null}

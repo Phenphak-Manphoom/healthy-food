@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import Error from "../components/Error.js";
 import Food from "../components/Food.js";
+import Loading from "../components/Loading.js";
 import { getAllFoods } from "../redux/actions/foodAction";
 
 export default function Homepage() {
@@ -14,9 +16,9 @@ export default function Homepage() {
     <div className="h-screen">
       <div className="grid grid-cols-3 gap-4  place-items-center m-12">
         {loading ? (
-          <h1>Loading...</h1>
+          <Loading/>
         ) : error ? (
-          <h1>Something went wrong</h1>
+          <Error error="Something went wrong" />
         ) : (
           foods.map((food) => {
             return (
