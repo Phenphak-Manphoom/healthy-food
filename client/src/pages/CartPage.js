@@ -1,5 +1,6 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
+import Checkout from "../components/Checkout";
 import { addToCart } from "../redux/actions/cartAction";
 import { deleteFormCart } from "../redux/actions/cartAction.js";
 
@@ -57,9 +58,8 @@ export default function CartsPage() {
       </div>
       <div className="w-1/3 justify-center m-10 text-right">
         <h2 className="text-4xl">SubTotal : ฿ {subTotal}</h2>
-        <button className="mt-2 bg-red-600  text-white font-bold py-2 px-4 rounded">
-          CHECK OUT
-        </button>
+
+        <Checkout subTotal={subTotal} />
       </div>
     </div>
   );

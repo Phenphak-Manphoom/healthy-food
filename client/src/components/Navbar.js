@@ -1,4 +1,4 @@
-import React, { useState} from "react";
+import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { logoutUser } from "../redux/actions/userAction";
 export default function () {
@@ -7,16 +7,14 @@ export default function () {
   const [open, setOpen] = useState(false);
   const dispatch = useDispatch();
   const { currentUser } = usestate;
- 
- 
+
   const handleOpen = () => {
     setOpen(!open);
   };
   const logout = () => {
-   
     dispatch(logoutUser());
   };
-  
+
   return (
     <div>
       <nav className="bg-white border-gray-200 px-2 sm:px-4 py-2.5 rounded dark:bg-gray-900 shadow-lg">
@@ -40,7 +38,7 @@ export default function () {
                   <div className="dropdown">
                     <button onClick={handleOpen} className="text-gray-700">
                       {currentUser.name}{" "}
-                      <i class="fa-sharp fa-solid fa-circle-down"></i>
+                      <i className="fa-sharp fa-solid fa-circle-down"></i>
                     </button>
                     {open ? (
                       <ul className="menu">
@@ -48,10 +46,7 @@ export default function () {
                           <button type="submit">Orders</button>
                         </li>
                         <li className="menu-item text-gray-700">
-                          <button
-                           onClick={logout}
-                           type="submit"
-                          >
+                          <button onClick={logout} type="submit">
                             Logout
                           </button>
                         </li>
