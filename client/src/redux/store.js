@@ -8,12 +8,14 @@ import {
   registerUserReducer,
   loginUserReducer,
 } from "./reducers/userReducers.js";
+import { placeOrderReducer } from "./reducers/orderReducers.js";
 
 const finalReducer = combineReducers({
   getAllFoodsReducers: getAllFoodsReducers,
   cartReducer: cartReducer,
   registerUserReducer: registerUserReducer,
   loginUserReducer: loginUserReducer,
+  placeOrderReducer: placeOrderReducer,
 });
 
 const cartItems = localStorage.getItem("cartItems")

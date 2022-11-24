@@ -3,10 +3,10 @@ import { useSelector, useDispatch } from "react-redux";
 import { logoutUser } from "../redux/actions/userAction";
 export default function () {
   const cartState = useSelector((state) => state.cartReducer);
-  const usestate = useSelector((state) => state.loginUserReducer);
+  const userstate = useSelector((state) => state.loginUserReducer);
   const [open, setOpen] = useState(false);
   const dispatch = useDispatch();
-  const { currentUser } = usestate;
+  const { currentUser } = userstate;
 
   const handleOpen = () => {
     setOpen(!open);
@@ -33,7 +33,7 @@ export default function () {
           <div className="hidden w-full md:block md:w-auto" id="navbar-default">
             <ul className="flex flex-col p-4 mt-4 bg-gray-50 rounded-lg border border-gray-100 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
               {currentUser ? (
-                // <li>{currentUser.name}</li>
+               
                 <li>
                   <div className="dropdown">
                     <button onClick={handleOpen} className="text-gray-700">

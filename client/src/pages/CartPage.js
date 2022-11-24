@@ -8,7 +8,7 @@ export default function CartsPage() {
   const cartState = useSelector((state) => state.cartReducer);
   const cartItems = cartState.cartItems;
   const dispatch = useDispatch();
-  let subTotal = cartItems.reduce((x, item) => x + item.price, 0);
+  let subtotal = cartItems.reduce((x, item) => x + item.price, 0);
 
   return (
     <div className="flex justify-center">
@@ -57,9 +57,9 @@ export default function CartsPage() {
         })}
       </div>
       <div className="w-1/3 justify-center m-10 text-right">
-        <h2 className="text-4xl">SubTotal : ฿ {subTotal}</h2>
+        <h2 className="text-4xl">SubTotal : ฿ {subtotal}</h2>
 
-        <Checkout subTotal={subTotal} />
+        <Checkout subtotal={subtotal} />
       </div>
     </div>
   );
