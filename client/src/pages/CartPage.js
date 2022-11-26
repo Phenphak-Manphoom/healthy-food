@@ -11,8 +11,8 @@ export default function CartsPage() {
   let subtotal = cartItems.reduce((x, item) => x + item.price, 0);
 
   return (
-    <div className="flex justify-center">
-      <div className="flex-row  mt-10 w-1/2 ">
+    <div className="h-screen flex justify-center">
+      <div className="flex-row  mt-28 w-1/2 ">
         <h2 className="text-2xl">My Cart</h2>
         {cartItems.map((item) => {
           return (
@@ -56,7 +56,7 @@ export default function CartsPage() {
           );
         })}
       </div>
-      <div className="w-1/3 justify-center m-10 text-right">
+      <div className="w-1/3 justify-center mt-28 text-right">
         <h2 className="text-4xl">SubTotal : ฿ {subtotal}</h2>
 
         <Checkout subtotal={subtotal} />

@@ -14,7 +14,7 @@ export default function Homepage() {
   }, []);
   return (
     <div className="h-screen">
-      <div className="grid grid-cols-3 gap-4  place-items-center m-12">
+      <div className="grid grid-cols-3 gap-4  place-items-center mt-28">
         {loading ? (
           <Loading/>
         ) : error ? (

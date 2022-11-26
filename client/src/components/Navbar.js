@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { logoutUser } from "../redux/actions/userAction";
+
 export default function () {
   const cartState = useSelector((state) => state.cartReducer);
   const userstate = useSelector((state) => state.loginUserReducer);
@@ -17,7 +18,7 @@ export default function () {
 
   return (
     <div>
-      <nav className="bg-white border-gray-200 px-2 sm:px-4 py-2.5 rounded dark:bg-gray-900 shadow-lg">
+      <nav className="fixed inset-x-0 top-0 bg-white border-gray-200 px-2 sm:px-4 py-2.5 rounded dark:bg-gray-900 shadow-lg">
         <div className="container flex flex-wrap justify-between items-center mx-auto">
           <a href="/" className="flex items-center">
             <img
@@ -33,22 +34,25 @@ export default function () {
           <div className="hidden w-full md:block md:w-auto" id="navbar-default">
             <ul className="flex flex-col p-4 mt-4 bg-gray-50 rounded-lg border border-gray-100 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
               {currentUser ? (
-               
                 <li>
                   <div className="dropdown">
-                    <button onClick={handleOpen} className="text-gray-700">
+                    <button
+                      onClick={handleOpen}
+                      className="text-gray-700"
+                      type="button"
+                    >
                       {currentUser.name}{" "}
                       <i className="fa-sharp fa-solid fa-circle-down"></i>
                     </button>
                     {open ? (
                       <ul className="menu">
                         <li className="menu-item text-gray-700">
-                          <button type="submit">Orders</button>
+                          <a href="/orders">Orders</a>
                         </li>
                         <li className="menu-item text-gray-700">
-                          <button onClick={logout} type="submit">
+                          <a onClick={logout} href="#">
                             Logout
-                          </button>
+                          </a>
                         </li>
                       </ul>
                     ) : null}

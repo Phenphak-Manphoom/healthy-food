@@ -8,7 +8,10 @@ import {
   registerUserReducer,
   loginUserReducer,
 } from "./reducers/userReducers.js";
-import { placeOrderReducer } from "./reducers/orderReducers.js";
+import {
+  placeOrderReducer,
+  getUserOrdersReducer,
+} from "./reducers/orderReducers.js";
 
 const finalReducer = combineReducers({
   getAllFoodsReducers: getAllFoodsReducers,
@@ -16,6 +19,7 @@ const finalReducer = combineReducers({
   registerUserReducer: registerUserReducer,
   loginUserReducer: loginUserReducer,
   placeOrderReducer: placeOrderReducer,
+  getUserOrdersReducer: getUserOrdersReducer,
 });
 
 const cartItems = localStorage.getItem("cartItems")
