@@ -18,7 +18,7 @@ export default function () {
 
   return (
     <div>
-      <nav className="fixed inset-x-0 top-0 bg-white border-gray-200 px-2 sm:px-4 py-2.5 rounded dark:bg-gray-900 shadow-lg">
+      <nav className="fixed inset-x-0 top-0  bg-white border-gray-200 px-2 sm:px-4 py-2.5 rounded dark:bg-gray-900 shadow-lg">
         <div className="container flex flex-wrap justify-between items-center mx-auto">
           <a href="/" className="flex items-center">
             <img

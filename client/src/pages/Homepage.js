@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import Error from "../components/Error.js";
+import Fillter from "../components/Fillter.js";
 import Food from "../components/Food.js";
 import Loading from "../components/Loading.js";
 import { getAllFoods } from "../redux/actions/foodAction";
@@ -13,8 +14,10 @@ export default function Homepage() {
     dispatch(getAllFoods());
   }, []);
   return (
-    <div className="h-screen">
-      <div className="grid grid-cols-3 gap-4  place-items-center mt-28">
+    <div className="h-screen m-14">
+       <Fillter />
+      <div className="grid grid-cols-3 gap-4  place-items-center">
+       
         {loading ? (
           <Loading/>
         ) : error ? (

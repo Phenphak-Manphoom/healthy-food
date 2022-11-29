@@ -11,7 +11,7 @@ export default function Food({ food }) {
     dispatch(addToCart(food, quantity, size));
   }
   return (
-    <div className="m-3  p-2">
+    <div className="h-full m-3  p-2">
       <h1 className="mb-3">{food.name}</h1>
       <div onClick={() => setShowModal(true)}>
         <img
