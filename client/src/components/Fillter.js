@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import React, { useState } from "react";
+import { useDispatch } from "react-redux";
 import { filterFoods } from "../redux/actions/foodAction";
 
 export default function Fillter() {
@@ -7,8 +7,11 @@ export default function Fillter() {
   const [searchKey, setSearchKey] = useState("");
   const [category, setCategory] = useState("all");
   return (
-    <div className="flex justify-center items-center mt-28 mr-44 ml-44 mb-10 h-14  bg-slate-100 rounded-full shadow-lg">
-      <div className="flex">
+    <div
+      className="flex justify-center items-center mt-20 mb-10 mr-56 ml-56  h-full bg-green-700 rounded-full max-md:mt-1 max-md:mr-0 max-md:ml-0 max-md:rounded-none"
+      id="filter"
+    >
+      <div className="flex max-md:flex max-md:flex-col">
         <div className="m-5">
           <input
             onChange={(e) => {
@@ -39,7 +42,7 @@ export default function Fillter() {
         </div>
         <div className="m-5">
           <button
-            className="w-44 h-7 bg-teal-500 text-white"
+            className="w-44 h-7 bg-black text-white"
             onClick={() => dispatch(filterFoods(searchKey, category))}
           >
             FILTER

@@ -17,6 +17,9 @@ export default function CartsPage() {
         {cartItems.map((item) => {
           return (
             <div className="grid grid-cols-3 gap-4 m-5">
+              <div className="flex justify-center m-auto">
+                <img src={item.image} className="w-28 h-28 rounded-lg shadow-lg" />
+              </div>
               <div className="text-left">
                 <h1>
                   {item.name} [{item.size}]
@@ -41,9 +44,7 @@ export default function CartsPage() {
                 ></i>
                 <hr />
               </div>
-              <div className="flex justify-center m-auto">
-                <img src={item.image} className="w-28 h-28" />
-              </div>
+
               <div className="flex justify-center m-auto ml-3">
                 <i
                   className="fa-solid fa-trash text-red-600"

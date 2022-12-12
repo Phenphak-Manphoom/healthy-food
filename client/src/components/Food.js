@@ -5,18 +5,19 @@ import { addToCart } from "../redux/actions/cartAction.js";
 export default function Food({ food }) {
   const [quantity, setQuantity] = useState(1);
   const [size, setSize] = useState("small");
-  const [showModal, setShowModal] = React.useState(false);
+  const [showModal, setShowModal] = useState(false);
   const dispatch = useDispatch();
   function addtocart() {
     dispatch(addToCart(food, quantity, size));
   }
   return (
-    <div className="h-full m-3  p-2">
+    <div className="h-full w-full m-3 p-5 bg-gray-100 rounded-md shadow-2xl">
       <h1 className="mb-3">{food.name}</h1>
       <div onClick={() => setShowModal(true)}>
         <img
           src={food.image}
-          className="rounded-full m-auto shadow-xl"
+          alt={food.name}
+          className="rounded-full m-auto shadow-xl max-md:rounded-none cursor-pointer transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110  duration-300"
           style={{ height: "160px", width: "160px" }}
         />
       </div>
@@ -57,7 +58,7 @@ export default function Food({ food }) {
         </div>
         <div className="w-100 ">
           <button
-            className="bg-teal-500 text-white font-bold py-1 px-3 rounded"
+            className="bg-green-700 text-white font-bold py-1 px-3 rounded"
             onClick={addtocart}
           >
             Add To Cart

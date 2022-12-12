@@ -1,4 +1,4 @@
-const foods = [
+export const foods = [
   {
     name: "Classic White Chicken Chili",
     sizes: ["small", "medium", "large"],

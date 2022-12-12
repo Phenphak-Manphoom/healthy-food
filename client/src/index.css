@@ -1,11 +1,22 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
+@layer base {
+  ::-webkit-scrollbar-thumb{
+  @apply bg-gray-100 shadow-sm
+  }
+  ::-webkit-scrollbar{
+  @apply w-3 bg-gray-100
+  }
+  ::-webkit-scrollbar-thumb{
+  @apply rounded-xl bg-black /*color trackbar*/
+  }
+}
 @import url("https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500&family=Montserrat:wght@600&display=swap");
 
 * {
   margin: 0;
+  padding: 0;
   box-sizing: border-box;
 }
 
@@ -28,32 +39,10 @@ code {
   color: black !important;
 }
 
-h1 {
+/* h1 {
   font-size: 17px !important;
+} */
+
+.header-img {
+  height: 625px;
 }
-
-.dropdown {
-  position: relative;
-}
-
-.menu {
-  position: absolute;
-
-  list-style-type: none;
-  margin-top: 7px;
-
-  width: 150px;
-}
-
-.menu > li {
-  text-align: justify;
-  padding-top: 10px;
-  padding-left: 20px;
-  background-color: white;
-}
-
-.menu > li:hover {
-  background-color: lightgray;
-}
-
-

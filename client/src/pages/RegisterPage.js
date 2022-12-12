@@ -28,8 +28,8 @@ export default function RegisterPage() {
     }
   }
   return (
-    <div className="m-5">
-      <div className="container md:w-1/2 lg:w-1/2 mx-auto my-12 bg-white shadow-xl">
+    <div className="flex h-screen w-screen bg-gray-100">
+      <div className=" w-2/5 h-3/4 ml-96  bg-gray-100 shadow-2xl mt-28 max-md:ml-14 max-md:w-4/5 ">
         <div className="w-full p-16 ">
           {loading && <Loading />}
           {success && <Success success="User Registered Successfully" />}
@@ -40,7 +40,7 @@ export default function RegisterPage() {
               required
               type="text"
               name="full-name"
-              className="px-4 py-3 w-full rounded-md bg-gray-100 border-transparent focus:border-gray-500 focus:bg-white focus:ring-0 text-sm"
+              className="px-4 py-3 w-full rounded-md  bg-white border-transparent focus:border-gray-500 focus:bg-white focus:ring-0 text-sm"
               placeholder="Full Name"
               value={name}
               onChange={(e) => {
@@ -51,7 +51,7 @@ export default function RegisterPage() {
               required
               type="email"
               name="email"
-              className="px-4 py-3 mt-4 w-full rounded-md bg-gray-100 border-transparent focus:border-gray-500 focus:bg-white focus:ring-0 text-sm"
+              className="px-4 py-3 mt-4 w-full rounded-md bg-white border-transparent focus:border-gray-500 focus:bg-white focus:ring-0 text-sm"
               placeholder="Email address"
               value={email}
               onChange={(e) => {
@@ -62,7 +62,7 @@ export default function RegisterPage() {
               required
               type="password"
               name="password"
-              className="px-4 py-3 mt-4 w-full rounded-md bg-gray-100 border-transparent focus:border-gray-500 focus:bg-white focus:ring-0 text-sm"
+              className="px-4 py-3 mt-4 w-full rounded-md bg-white border-transparent focus:border-gray-500 focus:bg-white focus:ring-0 text-sm"
               placeholder="Password"
               value={password}
               onChange={(e) => {
@@ -73,7 +73,7 @@ export default function RegisterPage() {
               required
               type="password"
               name="confirm-password"
-              className="px-4 py-3 mt-4 w-full rounded-md bg-gray-100 border-transparent focus:border-gray-500 focus:bg-white focus:ring-0 text-sm"
+              className="px-4 py-3 mt-4 w-full rounded-md bg-white border-transparent focus:border-gray-500 focus:bg-white focus:ring-0 text-sm"
               placeholder="Confirm Password"
               value={confirmPassword}
               onChange={(e) => {
@@ -83,14 +83,14 @@ export default function RegisterPage() {
             <button
               onClick={register}
               type="submit"
-              className="mt-4 px-4 py-3  leading-6 text-base rounded-md border border-transparent text-white focus:outline-none bg-teal-500  hover:text-white focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 cursor-pointer inline-flex  w-full justify-center items-center font-medium"
+              className="mt-4 px-4 py-3  leading-6 text-base rounded-md border border-transparent text-white focus:outline-none bg-green-700  hover:text-white focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 cursor-pointer inline-flex  w-full justify-center items-center font-medium"
             >
               Register
             </button>
             <div className="flex flex-col items-center mt-5">
               <p className="mt-1 text-xs font-light text-gray-500">
                 Register already?
-                <a href="/login" className="ml-1 font-medium text-blue-400">
+                <a href="/login" className="ml-1 font-medium text-green-700">
                   Login now
                 </a>
               </p>
