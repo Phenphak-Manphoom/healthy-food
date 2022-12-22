@@ -12,7 +12,7 @@ foodRouter.get("/getAllFoods", async (reg, res) => {
   }
 });
 
-foodRouter.post("/addFood", async (req, res) => {
+ foodRouter.post("/addFood", async (req, res) => {
   const food = req.body.food;
   try {
     const newFood = new Food({
