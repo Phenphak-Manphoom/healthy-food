@@ -23,24 +23,24 @@ export default function AdminPage() {
           <h1 className="text-3xl mb-2">Admin Panel</h1>
           <ul className="admin mb-3 pt-2 pb-2 pr-72 pl-72  bg-green-700 text-white flex max-md:flex-col">
             <li>
-              <Link to={"/admin/userslist"}>Users List</Link>
+              <Link to={"/admin/usersList"}>Users List</Link>
             </li>
             <li>
-              <Link to={"/admin/foodslist"}>Foods List</Link>
+              <Link to={"/admin/foodsList"}>Foods List</Link>
             </li>
             <li>
-              <Link to={"/admin/addfood"}>Add New Food</Link>
+              <Link to={"/admin/addFood"}>Add New Food</Link>
             </li>
             <li>
-              <Link to={"/admin/orderslist"}>Orders List</Link>
+              <Link to={"/admin/ordersList"}>Orders List</Link>
             </li>
           </ul>
           <Routes>
 
-            <Route path="/userslist" element={<UsersList />} />
-            <Route path="/orderslist" element={<OrdersList />} />
-            <Route path="/foodslist" element={<FoodsList />} />
-            <Route path="/addfood" element={<AddFood />} />
+            <Route path="/usersList" element={<UsersList />} />
+            <Route path="/ordersList" element={<OrdersList />} />
+            <Route path="/foodsList" element={<FoodsList />} />
+            <Route path="/addFood" element={<AddFood />} />
           </Routes>
         </div>
       </div>
