@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 import Error from "../components/Error.js";
 import Fillter from "../components/Fillter.js";
 import Loading from "../components/Loading.js";
@@ -37,7 +38,10 @@ export default function FoodsList() {
           {foods &&
             foods.map((food) => {
               return (
-                <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+                <tr
+                  className="bg-white border-b dark:bg-gray-800 dark:border-gray-700"
+                  key={food._id}
+                >
                   <td className="py-4 px-6">{food.name}</td>
                   <td className="py-4 px-6">
                     Small: {food.prices[0]["small"]} <br />
@@ -48,7 +52,9 @@ export default function FoodsList() {
                   <td className="py-4 px-6">{food.category}</td>
                   <td className="py-4 px-6">
                     <i className="fa fa-trash text-red-600"></i>
-                    <i className="fa fa-edit text-green-700 ml-3"></i>
+                    <Link to={`/admin/editFood/${food._id}`}>
+                      <i className="fa fa-edit text-green-700 ml-3"></i>
+                    </Link>
                   </td>
                 </tr>
               );

@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { Link, Route, Routes } from "react-router-dom";
 import AddFood from "./AddFood";
+import EditFood from "./EditFood";
 import FoodsList from "./FoodsList";
 import OrdersList from "./OrdersList";
 import UsersList from "./UsersList";
@@ -36,11 +37,11 @@ export default function AdminPage() {
             </li>
           </ul>
           <Routes>
-
             <Route path="/usersList" element={<UsersList />} />
             <Route path="/ordersList" element={<OrdersList />} />
             <Route path="/foodsList" element={<FoodsList />} />
             <Route path="/addFood" element={<AddFood />} />
+            <Route path="/editFood/:id" element={<EditFood />} />
           </Routes>
         </div>
       </div>
