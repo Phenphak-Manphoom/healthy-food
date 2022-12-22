@@ -46,3 +46,10 @@ code {
 .header-img {
   height: 625px;
 }
+.admin li a{
+  padding: 20px;
+}
+.admin li a:hover{
+  text-decoration: underline;
+  text-decoration-color: white;
+}

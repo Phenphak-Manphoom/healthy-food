@@ -22,7 +22,7 @@ export default function OrderPage() {
         {orders &&
           orders.map((order) => {
             return (
-              <div className=" bg-teal-500 mt-3 w-3/4 text-white rounded-xl shadow-xl">
+              <div className=" bg-green-700 mt-3 w-3/4 text-white rounded-xl shadow-xl max-md:w-5/6">
                 <div className="flex">
                   <div className="text-left w-4/5 m-3">
                     <h2 className="text-2xl mb-5">Products</h2>
