@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import Error from "../components/Error.js";
 import Fillter from "../components/Fillter.js";
 import Loading from "../components/Loading.js";
-import { getAllFoods } from "../redux/actions/foodAction.js";
+import { getAllFoods, deleteFood } from "../redux/actions/foodAction.js";
 export default function FoodsList() {
   const dispatch = useDispatch();
   const foodState = useSelector((state) => state.getAllFoodsReducers);
@@ -51,7 +51,12 @@ export default function FoodsList() {
                   </td>
                   <td className="py-4 px-6">{food.category}</td>
                   <td className="py-4 px-6">
-                    <i className="fa fa-trash text-red-600"></i>
+                    <i
+                      className="fa fa-trash text-red-600"
+                      onClick={() => {
+                        dispatch(deleteFood(food._id));
+                      }}
+                    ></i>
                     <Link to={`/admin/editFood/${food._id}`}>
                       <i className="fa fa-edit text-green-700 ml-3"></i>
                     </Link>

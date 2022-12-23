@@ -56,4 +56,14 @@ foodRouter.post("/editFood", async (req, res) => {
     return res.status(400).json({ massage: error });
   }
 });
+
+foodRouter.post("/deleteFood", async (req, res) => {
+  const id = req.body.id;
+  try {
+    await Food.findOneAndDelete({ _id: id });
+    res.send("Pizza Deleted Successfully");
+  } catch (error) {
+    return res.status(400).json({ massage: error });
+  }
+});
 export default foodRouter;
