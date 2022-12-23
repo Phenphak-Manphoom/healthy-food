@@ -16,6 +16,7 @@ import {
 import {
   placeOrderReducer,
   getUserOrdersReducer,
+  getAllOrdersReducer,
 } from "./reducers/orderReducers.js";
 
 const finalReducer = combineReducers({
@@ -28,6 +29,7 @@ const finalReducer = combineReducers({
   addFoodReducers: addFoodReducers,
   getFoodByIdReducers: getFoodByIdReducers,
   editFoodReducers: editFoodReducers,
+  getAllOrdersReducer: getAllOrdersReducer,
 });
 
 const cartItems = localStorage.getItem("cartItems")

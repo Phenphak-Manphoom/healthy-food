@@ -63,4 +63,25 @@ orderRouter.post("/getUserOrders", async (req, res) => {
   }
 });
 
+orderRouter.get("/getAllOrders", async (req, res) => {
+  try {
+    const orders = await Order.find({});
+    res.send(orders);
+  } catch (error) {
+    return res.status(400).json({ message: error });
+  }
+});
+
+orderRouter.post("/deliverOrder", async (req, res) => {
+  const id = req.body.id;
+  try {
+    const order = await Order.findOne({ _id: id });
+    order.isDelivered = true;
+    await order.save();
+    res.send("Order Delivered Successfully");
+  } catch (error) {
+    return res.status(400).json({ message: error });
+  }
+});
+
 export default orderRouter;

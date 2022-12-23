@@ -31,3 +31,27 @@ export const getUserOrders = () => async (dispatch, getState) => {
     dispatch({ type: "GET_USER_ORDERS_FAILED", payload: error });
   }
 };
+
+export const getAllOrders = () => async (dispatch, getState) => {
+  const currentUser = getState().loginUserReducer.currentUser;
+  dispatch({ type: "GET_ALL_ORDERS_REQUEST" });
+  try {
+    const response = await axios.get("/api/orders/getAllOrders");
+    console.log(response);
+    dispatch({ type: "GET_ALL_ORDERS_SUCCESS", payload: response.data });
+  } catch (error) {
+    dispatch({ type: "GET_ALL_ORDERS_FAILED", payload: error });
+  }
+};
+
+export const deliverOrder = (id) => async (dispatch) => {
+  try {
+    const response = await axios.post("/api/orders/deliverOrder", { id });
+    console.log(response);
+    alert("Order Delivered");
+    const orders = await axios.get("/api/orders/getAllOrders");
+    dispatch({ type: "GET_ALL_ORDERS_SUCCESS", payload: orders.data });
+  } catch (error) {
+    console.log(error);
+  }
+};
