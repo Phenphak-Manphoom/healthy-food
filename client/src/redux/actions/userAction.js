@@ -27,3 +27,26 @@ export const logoutUser = () => (dispatch) => {
   localStorage.removeItem("currentUser");
   window.location.href = "/login";
 };
+
+export const getAllUsers = () => async (dispatch) => {
+  dispatch({ type: "GET_USERS_REQUEST" });
+  try {
+    const response = await axios.get("/api/users/getAllUsers");
+    console.log(response);
+    dispatch({ type: "GET_USERS_SUCCESS", payload: response.data });
+  } catch (error) {
+    dispatch({ type: "GET_USERS_FAILED", payload: error });
+  }
+};
+
+export const deleteUser = (id) => async (dispatch) => {
+  try {
+    const response = await axios.post("/api/users/deleteUser", { id });
+    alert("User Deleted Successfully");
+    console.log(response);
+    window.location.reload();
+  } catch (error) {
+    alert("Something went wrong");
+    console.log(error);
+  }
+};

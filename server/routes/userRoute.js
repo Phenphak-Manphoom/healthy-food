@@ -35,4 +35,23 @@ userRouter.post("/login", async (req, res) => {
   }
 });
 
+userRouter.get("/getAllUsers", async (req, res) => {
+  try {
+    const users = await User.find({});
+    res.send(users);
+  } catch (error) {
+    return res.status(400).json({ message: error });
+  }
+});
+
+userRouter.post("/deleteUser", async (req, res) => {
+  const id = req.body.id;
+  try {
+    await User.findOneAndDelete({ _id: id });
+    res.send("User Deleted Successfully");
+  } catch (error) {
+    return res.status(400).json({ message: error });
+  }
+});
+
 export default userRouter;
